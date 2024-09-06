@@ -1,82 +1,40 @@
 import './App.css';
 import { useState } from 'react';
 import React from 'react';
+import InputField from './inputField'; 
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <h1 style={{textAlign: 'center'}}>This is a basic Finance-tracker.</h1>
-//         <p>
-//           Income / Month:
-//         </p>
-//         <p>
-//           Expenses:
-//         </p>
-//         <p>
-//           Monthly Savings: 
-//         </p>
-//       </header>
-//     </div>
-//   );
-// }
-
-// function App() {
-//   const [inputFields, setInputFields] = useState("");
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     alert(inputFields);
-//   }
-
-
-// return (
-//   <div className="IField">
-//   <br></br>
-
-//   <form onSubmit={handleSubmit}>
-//     <div>Income / Month: {inputFields}</div>
-//       <input type="number" value={inputFields} onChange={(e)  => setInputFields(e.target.value)}/>
-//       <input type="submit" />
-//   </form>
-
-//   <form onSubmit={handleSubmit}>
-//     <div>Expenses: {inputFields}</div>
-//       <input type="number" value={inputFields} onChange={(e)  => setInputFields(e.target.value)}/>
-//       <input type="submit" />
-//   </form>
-
-//   <form onSubmit={handleSubmit}>
-//     <div>Monthly Savings: {inputFields}</div>
-//       <input type="number" value={inputFields} onChange={(e)  => setInputFields(e.target.value)}/>
-//       <input type="submit" />
-//   </form>
-
-
-
-//   </div>
-
-
-// )}
-
-
-import InputField from './inputField'; // Import the reusable component
 
 function App() {
-  const handleIncomeSubmit = (value) => {
-    alert(`Submitted Income: ${value}`);
+  // Define state variables for Income, Bills, and Expenses
+  const [income, setIncome] = useState(0);
+  const [bills, setBills] = useState(0);
+  const [expenses, setExpenses] = useState(0);
+  const [savings, setSavings] = useState(0);
+
+  // Function to calculate remaining income
+  const calculateSavings = () => {
+    const remainingIncome = income - (bills + expenses);
+    setSavings(remainingIncome);
   };
 
   return (
     <div className="App">
-      <h1 style={{textAlign: "center"}}>Basic Finance Tracker</h1>
-      <InputField label="Income / Month" onSubmit={handleIncomeSubmit} />
-      <InputField label="Expenses" onSubmit={handleIncomeSubmit} />
-      <InputField label="Monthly Savings" onSubmit={handleIncomeSubmit} />
+      <h1 style={{ textAlign: 'center' }}>Basic Finance Tracker</h1>
+
+      
+      <InputField label="Income / Month" onSubmit={setIncome} />
+      <InputField label="Bills" onSubmit={setBills} />
+      <InputField label="Expenses" onSubmit={setExpenses} />
+      
+      
+      <button onClick={calculateSavings}>Calculate Savings</button>
+      <button onClick={ () => {setIncome(0); setBills(0); setExpenses(0); setSavings(0)}}>Reset</button>
+
+      
+      <h2>Monthly Savings: {savings}</h2>
     </div>
   );
 }
-
 
 
 export default App;

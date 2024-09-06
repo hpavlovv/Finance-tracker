@@ -1,14 +1,14 @@
-
 import "./App.css";
-
 import React, { useState } from 'react';
+
 
 const InputField = ({ label, onSubmit }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(inputValue);  // Trigger the callback with the current value
+    onSubmit(Number(inputValue));  // Trigger the callback with the current value
+    setInputValue("");  // Reset the input field after submission
   }
 
   return (
