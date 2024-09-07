@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import React from 'react';
 import InputField from './inputField'; 
+import { PieGraph } from './components/Pie';
 
 
 function App() {
