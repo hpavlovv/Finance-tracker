@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, This is a Finance tracker made with React and Chart.js</h1>
+<h1 align="center">Hi 👋, This is a Finance Tracker made using React and Chart.js</h1>
 <h3 align="center">A basic finance tracker where you fill forms like your income / Month and different expenses you may have like food, bills etc., which get displayed in real time on a Pie Chart to better visualize how much of your income they take. You can check how much you save at the end of the month or reset everything if you made a mistake without having to refresh the page.</h3>
 
 <h3 align="left">Connect with me:</h3>
